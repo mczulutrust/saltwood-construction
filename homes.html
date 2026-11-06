@@ -42,6 +42,14 @@
             text-decoration: none;
         }
         .logo img { height: 50px; }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
         nav ul { display: flex; list-style: none; gap: 2rem; }
         nav a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
         nav a:hover { color: #a0c4ff; }
@@ -107,8 +115,23 @@
         }
         .webmaster a { color: white; text-decoration: none; }
         .webmaster a:hover { text-decoration: underline; }
-        @media (max-width: 768px) {
-            nav ul { gap: 1rem; }
+        @media (max-width: 900px) {
+            .menu-toggle { display: block; }
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--primary);
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 0;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+            nav ul.active { display: flex; }
+            nav ul li { text-align: center; padding: 0.8rem 0; }
+            nav ul li a { display: block; }
             .hero h1 { font-size: 2.2rem; }
         }
     </style>
@@ -121,6 +144,7 @@
                     <img src="imagine_images/Logo_Landscape_SWC.jpg" alt="Saltwood Construction">
                 </a>
             </div>
+            <button class="menu-toggle" aria-label="Menu">☰</button>
             <ul>
                 <li><a href="homes.html">Homes</a></li>
                 <li><a href="renovations.html">Renovations</a></li>
@@ -183,6 +207,9 @@
             document.getElementById('lightbox').classList.remove('active');
         }
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
     </script>
 </body>
 </html>
