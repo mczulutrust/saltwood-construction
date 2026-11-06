@@ -155,7 +155,6 @@
         .gallery img:hover {
             transform: scale(1.05);
         }
-        /* Lightbox */
         .lightbox {
             display: none;
             position: fixed;
@@ -266,6 +265,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="renovations.html">Renovations</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -356,7 +356,7 @@
                     <p><strong>Service Area:</strong> Brunswick County, NC and surrounding areas</p>
                     <p style="margin-top: 1.5rem;"><strong>Follow us:</strong></p>
                     <div class="social">
-                        <a href="https://www.facebook.com/people/Saltwood-Construction/61585786544525/" target="_blank">Facebook</a>
+                        <a href="https://www.facebook.com/profile.php?id=61585786544525" target="_blank">Facebook</a>
                     </div>
                 </div>
                 <form action="https://formspree.io/f/your-form-id" method="POST">
@@ -376,11 +376,10 @@
     <footer>
         <p>&copy; 2026 Saltwood Construction. All rights reserved. Serving Brunswick County, North Carolina.</p>
         <div class="social" style="margin-top: 1rem;">
-            <a href="https://www.facebook.com/people/Saltwood-Construction/61585786544525/" target="_blank">Facebook</a>
+            <a href="https://www.facebook.com/profile.php?id=61585786544525" target="_blank">Facebook</a>
         </div>
     </footer>
 
-    <!-- Lightbox -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <span class="lightbox-close">&times;</span>
         <img id="lightbox-img" src="" alt="Enlarged photo">
@@ -396,7 +395,6 @@
         function closeLightbox() {
             document.getElementById('lightbox').classList.remove('active');
         }
-        // Close on Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeLightbox();
         });
