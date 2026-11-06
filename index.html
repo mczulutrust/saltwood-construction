@@ -150,9 +150,42 @@
             object-fit: cover;
             border-radius: 10px;
             transition: transform 0.3s;
+            cursor: pointer;
         }
         .gallery img:hover {
             transform: scale(1.05);
+        }
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
         }
         .contact {
             background: white;
@@ -290,24 +323,25 @@
     <section id="projects">
         <h2>Featured Projects</h2>
         <div class="gallery">
-            <img src="imagine_images/SWC_DarkBlueDream_House.jpg" alt="Dark Blue Dream House">
-            <img src="imagine_images/SWC_DarkBlueDream_House_Kitchen.jpg" alt="Dark Blue Dream Kitchen">
-            <img src="imagine_images/SWC_HunterGreenDream_House_Front.jpg" alt="Hunter Green Dream House">
-            <img src="imagine_images/SWC_HunterGreenDream_House_Kitchen.jpg" alt="Hunter Green Dream Kitchen">
+            <img src="imagine_images/SWC_DarkBlueDream_House.jpg" alt="Dark Blue Dream House" onclick="openLightbox(this.src)">
+            <img src="imagine_images/SWC_DarkBlueDream_House_Kitchen.jpg" alt="Dark Blue Dream Kitchen" onclick="openLightbox(this.src)">
+            <img src="imagine_images/SWC_HunterGreenDream_House_Front.jpg" alt="Hunter Green Dream House" onclick="openLightbox(this.src)">
+            <img src="imagine_images/SWC_HunterGreenDream_House_Kitchen.jpg" alt="Hunter Green Dream Kitchen" onclick="openLightbox(this.src)">
         </div>
     </section>
 
     <section id="gallery" style="background: #edf2f7;">
         <h2>Project Gallery</h2>
         <div class="gallery">
-            <img src="imagine_images/SWC_DarkBlueDream_House_Back.jpg" alt="Dark Blue Dream - Back">
-            <img src="imagine_images/SWC_DarkBlueDream_House_LvgRm.jpg" alt="Dark Blue Dream Living Room">
-            <img src="imagine_images/SWC_DarkBlueDream_House_MBR.jpg" alt="Dark Blue Dream Master Bedroom">
-            <img src="imagine_images/SWC_DarkBlueDream_House_MBaR.jpg" alt="Dark Blue Dream Master Bathroom">
-            <img src="imagine_images/SWC_HunterGreenDream_House_Front2.jpg" alt="Hunter Green Dream - Front">
-            <img src="imagine_images/SWC_HunterGreenDream_House_Living.jpg" alt="Hunter Green Dream Living Room">
-            <img src="imagine_images/SWC_HunterGreenDream_House_MBaR.jpg" alt="Hunter Green Dream Master Bathroom">
-            <img src="imagine_images/SWC_HunterGreenDream_House_Green.jpg" alt="Hunter Green Dream Exterior">
+            <img src="imagine_images/SWC_DarkBlueDream_House.jpg" alt="Dark Blue Dream House - Front" onclick="openLightbox(this.src)">
+            <img src="imagine_images/SWC_DarkBlueDream_House_Back.jpg" alt="Dark Blue Dream - Back" onclick="openLightbox(this.src)">
+            <img src="imagine_images/SWC_DarkBlueDream_House_LvgRm.jpg" alt="Dark Blue Dream Living Room" onclick="openLightbox(this.src)">
+            <img src="imagine_images/SWC_DarkBlueDream_House_MBR.jpg" alt="Dark Blue Dream Master Bedroom" onclick="openLightbox(this.src)">
+            <img src="imagine_images/SWC_DarkBlueDream_House_MBaR.jpg" alt="Dark Blue Dream Master Bathroom" onclick="openLightbox(this.src)">
+            <img src="imagine_images/SWC_HunterGreenDream_House_Front2.jpg" alt="Hunter Green Dream - Front" onclick="openLightbox(this.src)">
+            <img src="imagine_images/SWC_HunterGreenDream_House_Living.jpg" alt="Hunter Green Dream Living Room" onclick="openLightbox(this.src)">
+            <img src="imagine_images/SWC_HunterGreenDream_House_MBaR.jpg" alt="Hunter Green Dream Master Bathroom" onclick="openLightbox(this.src)">
+            <img src="imagine_images/SWC_HunterGreenDream_House_Green.jpg" alt="Hunter Green Dream Exterior" onclick="openLightbox(this.src)">
         </div>
     </section>
 
@@ -345,5 +379,27 @@
             <a href="https://www.facebook.com/people/Saltwood-Construction/61585786544525/" target="_blank">Facebook</a>
         </div>
     </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Enlarged photo">
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lightbox.classList.add('active');
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
 </body>
 </html>
