@@ -11,7 +11,6 @@
             --accent: #2c5282;
             --light: #f7f9fc;
             --gray: #4a5568;
-            --white: #ffffff;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -51,8 +50,8 @@
         nav a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
         nav a:hover { color: #a0c4ff; }
         .hero {
-            background: linear-gradient(rgba(30, 58, 95, 0.6), rgba(30, 58, 95, 0.6)), url('imagine_images/SWC_DarkBlueDream_House.jpg') center/cover no-repeat;
-            height: 80vh;
+            background: linear-gradient(rgba(30, 58, 95, 0.55), rgba(30, 58, 95, 0.55)), url('imagine_images/SWC_DarkBlueDream_House.jpg') center/cover no-repeat;
+            height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -60,12 +59,13 @@
             color: white;
         }
         .hero-content h1 {
-            font-size: 3.2rem;
+            font-size: 3.4rem;
             margin-bottom: 1rem;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            line-height: 1.15;
         }
         .hero-content p {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             margin-bottom: 2rem;
             text-shadow: 0 1px 4px rgba(0,0,0,0.4);
         }
@@ -73,17 +73,22 @@
             display: inline-block;
             background: var(--secondary);
             color: white;
-            padding: 0.8rem 2rem;
+            padding: 0.9rem 2.2rem;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
             transition: background 0.3s;
+            margin: 0.5rem;
         }
         .btn:hover { background: var(--accent); }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+        .btn-outline:hover { background: white; color: var(--primary); }
         section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
-        h2 { text-align: center; color: var(--primary); font-size: 2.5rem; margin-bottom: 3rem; }
-        .about { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-        .about img { width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: var(--primary); font-size: 2.5rem; margin-bottom: 1.5rem; }
+        .lead { text-align: center; max-width: 750px; margin: 0 auto 3rem; font-size: 1.15rem; }
         .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
         .service-card {
             background: white;
@@ -95,66 +100,15 @@
         }
         .service-card:hover { transform: translateY(-5px); }
         .service-card h3 { color: var(--primary); margin-bottom: 1rem; }
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .gallery img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 10px;
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-        .gallery img:hover { transform: scale(1.05); }
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            justify-content: center;
-            align-items: center;
-        }
-        .lightbox.active { display: flex; }
-        .lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
-        .lightbox-close {
-            position: absolute;
-            top: 20px; right: 30px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 10000;
-        }
-        .contact {
-            background: white;
-            padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-        form { display: flex; flex-direction: column; gap: 1rem; }
-        input, textarea {
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        textarea { min-height: 120px; resize: vertical; }
-        button {
+        .cta-band {
             background: var(--primary);
             color: white;
-            padding: 1rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.3s;
+            text-align: center;
+            padding: 4rem 2rem;
         }
-        button:hover { background: var(--accent); }
-        .contact-info p { margin-bottom: 1rem; font-size: 1.1rem; }
+        .cta-band h2 { color: white; margin-bottom: 1rem; }
         footer {
-            background: var(--primary);
+            background: #152a45;
             color: white;
             text-align: center;
             padding: 2rem;
@@ -162,7 +116,6 @@
         .social { margin-top: 1rem; }
         .social a { color: white; margin: 0 1rem; font-size: 1.5rem; text-decoration: none; }
         @media (max-width: 768px) {
-            .about, .contact-grid { grid-template-columns: 1fr; }
             .hero-content h1 { font-size: 2.4rem; }
             nav ul { gap: 1rem; }
         }
@@ -178,11 +131,9 @@
                 </a>
             </div>
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#homes">Homes</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="homes.html">Homes</a></li>
                 <li><a href="renovations.html">Renovations</a></li>
-                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -190,131 +141,48 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Custom Homes. Local Experts.<br>Built Your Way.</h1>
+            <h1>Custom Homes.<br>Local Experts.<br>Built Your Way.</h1>
             <p>Brunswick County’s trusted custom home builders — not cookie-cutter.</p>
-            <a href="#contact" class="btn">Get a Free Quote</a>
+            <a href="homes.html" class="btn">View Custom Homes</a>
+            <a href="#contact" class="btn btn-outline">Get a Free Quote</a>
         </div>
     </section>
 
-    <section id="about">
-        <h2>About Saltwood Construction</h2>
-        <div class="about">
-            <div>
-                <p>Veteran and locally owned residential and commercial construction company based in Brunswick County, North Carolina.</p>
-                <p style="margin-top: 1rem;">We specialize in new home construction, renovations, kitchen and bathroom remodels, custom builds, and general contracting. Serving Brunswick County and surrounding areas with quality craftsmanship and reliable service.</p>
-                <p style="margin-top: 1rem;">Our team is committed to delivering projects on time, on budget, and with the attention to detail your home deserves.</p>
+    <section>
+        <h2>What We Build</h2>
+        <p class="lead">From custom new homes to full renovations, we deliver quality craftsmanship with a personal touch.</p>
+        <div class="services">
+            <div class="service-card">
+                <h3>Custom Homes</h3>
+                <p>Designed and built around your vision, your land, and your lifestyle.</p>
+                <a href="homes.html" class="btn" style="margin-top:1rem;">See Homes</a>
             </div>
-            <img src="imagine_images/SWC_ConstructionFraming.jpg" alt="Construction in progress">
-        </div>
-    </section>
-
-    <section id="services" style="background: white; max-width: none; padding: 5rem 2rem;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h2>Our Services</h2>
-            <div class="services">
-                <div class="service-card">
-                    <h3>New Home Construction</h3>
-                    <p>Building your dream home from the ground up with quality materials and expert craftsmanship.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Renovations & Remodels</h3>
-                    <p>Transforming existing spaces into something beautiful, functional, and tailored to your lifestyle.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Kitchen & Bathroom</h3>
-                    <p>Specialized remodels that maximize style, storage, and daily enjoyment in your most-used rooms.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Custom Builds</h3>
-                    <p>Unique designs built exactly to your vision, needs, and the character of your property.</p>
-                </div>
-                <div class="service-card">
-                    <h3>General Contracting</h3>
-                    <p>Full-service project management for renovations, additions, and specialty construction work.</p>
-                </div>
+            <div class="service-card">
+                <h3>Renovations</h3>
+                <p>Kitchens, bathrooms, and full-home transformations done right.</p>
+                <a href="renovations.html" class="btn" style="margin-top:1rem;">See Renovations</a>
+            </div>
+            <div class="service-card">
+                <h3>General Contracting</h3>
+                <p>Full-service project management for additions and specialty work.</p>
             </div>
         </div>
     </section>
 
-    <section id="homes">
-        <h2>Featured Custom Homes</h2>
-        <div class="gallery">
-            <img src="imagine_images/SWC_DarkBlueDream_House.jpg" alt="Dark Blue Dream House" onclick="openLightbox(this.src)">
-            <img src="imagine_images/SWC_DarkBlueDream_House_Kitchen.jpg" alt="Dark Blue Dream Kitchen" onclick="openLightbox(this.src)">
-            <img src="imagine_images/SWC_HunterGreenDream_House_Front.jpg" alt="Hunter Green Dream House" onclick="openLightbox(this.src)">
-            <img src="imagine_images/SWC_HunterGreenDream_House_Kitchen.jpg" alt="Hunter Green Dream Kitchen" onclick="openLightbox(this.src)">
-        </div>
-    </section>
-
-    <section id="gallery" style="background: #edf2f7;">
-        <h2>Project Gallery</h2>
-        <div class="gallery">
-            <img src="imagine_images/SWC_DarkBlueDream_House.jpg" alt="Dark Blue Dream House - Front" onclick="openLightbox(this.src)">
-            <img src="imagine_images/SWC_DarkBlueDream_House_Back.jpg" alt="Dark Blue Dream - Back" onclick="openLightbox(this.src)">
-            <img src="imagine_images/SWC_DarkBlueDream_House_LvgRm.jpg" alt="Dark Blue Dream Living Room" onclick="openLightbox(this.src)">
-            <img src="imagine_images/SWC_DarkBlueDream_House_MBR.jpg" alt="Dark Blue Dream Master Bedroom" onclick="openLightbox(this.src)">
-            <img src="imagine_images/SWC_DarkBlueDream_House_MBaR.jpg" alt="Dark Blue Dream Master Bathroom" onclick="openLightbox(this.src)">
-            <img src="imagine_images/SWC_HunterGreenDream_House_Front2.jpg" alt="Hunter Green Dream - Front" onclick="openLightbox(this.src)">
-            <img src="imagine_images/SWC_HunterGreenDream_House_Living.jpg" alt="Hunter Green Dream Living Room" onclick="openLightbox(this.src)">
-            <img src="imagine_images/SWC_HunterGreenDream_House_MBaR.jpg" alt="Hunter Green Dream Master Bathroom" onclick="openLightbox(this.src)">
-            <img src="imagine_images/SWC_HunterGreenDream_House_Green.jpg" alt="Hunter Green Dream Exterior" onclick="openLightbox(this.src)">
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>Get In Touch</h2>
-        <div class="contact">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Contact Saltwood Construction</h3>
-                    <p><strong>Phone:</strong> <a href="tel:9109640946">(910) 964-0946</a></p>
-                    <p><strong>Email:</strong> <a href="mailto:saltwoodconstructionllc@gmail.com">saltwoodconstructionllc@gmail.com</a></p>
-                    <p><strong>Service Area:</strong> Brunswick County, NC and surrounding areas</p>
-                    <p style="margin-top: 1.5rem;"><strong>Follow us:</strong></p>
-                    <div class="social">
-                        <a href="https://www.facebook.com/profile.php?id=61585786544525" target="_blank">Facebook</a>
-                    </div>
-                </div>
-                <form action="https://formspree.io/f/your-form-id" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <input type="tel" name="phone" placeholder="Phone Number">
-                    <textarea name="message" placeholder="Tell us about your project..." required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
-            <p style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: #718096;">
-                Or call us directly at (910) 964-0946 — we’d love to hear about your project.
-            </p>
-        </div>
+    <section class="cta-band" id="contact">
+        <h2>Ready to Build or Renovate?</h2>
+        <p style="margin-bottom: 1.5rem; font-size: 1.15rem;">Call us today or send a message — we’d love to hear about your project.</p>
+        <p style="font-size: 1.3rem; margin-bottom: 1.5rem;"><strong>(910) 964-0946</strong></p>
+        <p><a href="mailto:saltwoodconstructionllc@gmail.com" style="color: white;">saltwoodconstructionllc@gmail.com</a></p>
+        <a href="https://www.facebook.com/profile.php?id=61585786544525" target="_blank" class="btn btn-outline" style="margin-top: 1.5rem;">Follow Us on Facebook</a>
     </section>
 
     <footer>
-        <p>&copy; 2026 Saltwood Construction. All rights reserved. Serving Brunswick County, North Carolina.</p>
+        <p>&copy; 2026 Saltwood Construction. Serving Brunswick County, North Carolina.</p>
         <div class="social">
             <p style="margin-bottom: 0.5rem;"><strong>Follow us:</strong></p>
             <a href="https://www.facebook.com/profile.php?id=61585786544525" target="_blank">Facebook</a>
         </div>
     </footer>
-
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close">&times;</span>
-        <img id="lightbox-img" src="" alt="Enlarged photo">
-    </div>
-
-    <script>
-        function openLightbox(src) {
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
-            img.src = src;
-            lightbox.classList.add('active');
-        }
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
-        }
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeLightbox();
-        });
-    </script>
 </body>
 </html>
