@@ -49,7 +49,7 @@
         nav a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; }
         nav a:hover { color: #a0c4ff; }
         .hero {
-            background: linear-gradient(rgba(30, 58, 95, 0.65), rgba(30, 58, 95, 0.65)), url('imagine_images/SWC_DarkBlueDream_House_Kitchen.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(30, 58, 95, 0.65), rgba(30, 58, 95, 0.65)), url('imagine_images/SWC_2Reno_Kitchen_After.jpg') center/cover no-repeat;
             height: 50vh;
             display: flex;
             align-items: center;
@@ -61,20 +61,35 @@
         section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
         h2 { text-align: center; color: var(--primary); font-size: 2.5rem; margin-bottom: 2rem; }
         .intro { text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.15rem; }
+        .pair {
+            margin-bottom: 4rem;
+        }
+        .pair h3 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+        }
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
         }
         .gallery img {
             width: 100%;
-            height: 250px;
+            height: 320px;
             object-fit: cover;
             border-radius: 10px;
             cursor: pointer;
             transition: transform 0.3s;
         }
-        .gallery img:hover { transform: scale(1.05); }
+        .gallery img:hover { transform: scale(1.03); }
+        .label {
+            text-align: center;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
         .lightbox {
             display: none;
             position: fixed;
@@ -103,8 +118,10 @@
         }
         .social a { color: white; margin: 0 1rem; font-size: 1.5rem; text-decoration: none; }
         @media (max-width: 768px) {
+            .gallery { grid-template-columns: 1fr; }
             nav ul { gap: 1rem; }
             .hero h1 { font-size: 2.2rem; }
+            .gallery img { height: 250px; }
         }
     </style>
 </head>
@@ -131,15 +148,84 @@
 
     <section>
         <div class="intro">
-            <p>From kitchens and bathrooms to full-home transformations, Saltwood Construction delivers high-quality renovations that improve both function and style. Browse some of our recent work below.</p>
+            <p>From kitchens and bathrooms to full-home transformations, Saltwood Construction delivers high-quality renovations that improve both function and style. Browse before-and-after results from recent projects.</p>
         </div>
 
-        <h2>Renovation Gallery</h2>
-        <div class="gallery" id="reno-gallery">
-            <!-- Photos will appear here once uploaded -->
-            <p style="text-align:center; grid-column: 1 / -1; font-style: italic; color: #718096;">
-                Renovation photos coming soon. Upload images named Reno_Kitchen_01.jpg, Reno_Bathroom_01.jpg, etc. into the imagine_images folder.
-            </p>
+        <h2>Before & After</h2>
+
+        <!-- Kitchen 1 -->
+        <div class="pair">
+            <h3>Kitchen Renovation</h3>
+            <div class="gallery">
+                <div>
+                    <img src="imagine_images/SWC_1Reno_Kitchen_Before.jpg" alt="Kitchen Before" onclick="openLightbox(this.src)">
+                    <div class="label">Before</div>
+                </div>
+                <div>
+                    <img src="imagine_images/SWC_2Reno_Kitchen_After.jpg" alt="Kitchen After" onclick="openLightbox(this.src)">
+                    <div class="label">After</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kitchen 2 -->
+        <div class="pair">
+            <h3>Kitchen Renovation</h3>
+            <div class="gallery">
+                <div>
+                    <img src="imagine_images/SWC_3Reno_Kitchen_Before.jpg" alt="Kitchen Before" onclick="openLightbox(this.src)">
+                    <div class="label">Before</div>
+                </div>
+                <div>
+                    <img src="imagine_images/SWC_4Reno_Kitchen_After.jpg" alt="Kitchen After" onclick="openLightbox(this.src)">
+                    <div class="label">After</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Master Bathroom -->
+        <div class="pair">
+            <h3>Master Bathroom Renovation</h3>
+            <div class="gallery">
+                <div>
+                    <img src="imagine_images/SWC_5Reno_MBaR_Before.jpg" alt="Master Bath Before" onclick="openLightbox(this.src)">
+                    <div class="label">Before</div>
+                </div>
+                <div>
+                    <img src="imagine_images/SWC_6Reno_MBaR_After.jpg" alt="Master Bath After" onclick="openLightbox(this.src)">
+                    <div class="label">After</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Closet -->
+        <div class="pair">
+            <h3>Closet Renovation</h3>
+            <div class="gallery">
+                <div>
+                    <img src="imagine_images/SWC_7Reno_Closit_Before.jpg" alt="Closet Before" onclick="openLightbox(this.src)">
+                    <div class="label">Before</div>
+                </div>
+                <div>
+                    <img src="imagine_images/SWC_8Reno_Closit_After.jpg" alt="Closet After" onclick="openLightbox(this.src)">
+                    <div class="label">After</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bedroom -->
+        <div class="pair">
+            <h3>Bedroom Renovation</h3>
+            <div class="gallery">
+                <div>
+                    <img src="imagine_images/SWC_9Reno_BR_Before.jpg" alt="Bedroom Before" onclick="openLightbox(this.src)">
+                    <div class="label">Before</div>
+                </div>
+                <div>
+                    <img src="imagine_images/SWC_10Reno_BR_After.jpg" alt="Bedroom After" onclick="openLightbox(this.src)">
+                    <div class="label">After</div>
+                </div>
+            </div>
         </div>
     </section>
 
